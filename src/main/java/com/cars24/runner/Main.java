@@ -1,49 +1,35 @@
 package com.cars24.runner;
 
+import com.cars24.runner.UI;
 
-import com.cars24.dao.impl.CustomerDaoImpl;
-import com.cars24.data.req.AddCustomerReq;
-import com.cars24.data.req.CustomerProfileReq;
-import com.cars24.data.res.CustomerProfileResponse;
-import com.cars24.services.CustomerService;
-import com.cars24.services.impl.CustomerServiceImpl;
-import com.cars24.util.DbUtil;
-
-import java.sql.SQLException;
-
+import java.util.Scanner;
 public class Main {
-    public static void main(String[] args) throws SQLException {
-        DbUtil.getDBconnection();
-        CustomerServiceImpl customerService = new CustomerServiceImpl() ;
-//        AddCustomerReq addCustomerReq = new AddCustomerReq();
-//        addCustomerReq.setName("");
-//        addCustomerReq.setEmail("avanii@gmail.com");
-//        addCustomerReq.setPhone("2938393993");
-//        addCustomerReq.setAddress("hey");
-//
-//        customerService.registerCustomer(addCustomerReq);
+    public static void main(String[] args) {
 
+        Scanner scanner = new Scanner(System.in);
+        boolean exit = true;
 
-        CustomerProfileReq customerProfileReq = new CustomerProfileReq();
-        customerProfileReq.setEmail("davani@gmaill.com");
-        customerProfileReq.setPhone("1234567890");
+        while (true){
+            System.out.println("enter choice");
+            System.out.println("0 to exit");
+            System.out.println("1 to add details");
+            System.out.println("2 to get details");
+            int choice = scanner.nextInt();
+            switch(choice) {
+                case 1:
+                    UI.addCustomer();
+                    break;
+                // call
+                case 2:
+                    UI.getCustomer();
+                    break;
+                case 0:
+                    exit =false;
+                    break;
+            }
+        }
 
-        CustomerProfileResponse customerProfileResponse = customerService.getCustomerProfile(customerProfileReq);
-        System.out.println(customerProfileResponse);
-
-
-//        CustomerDaoImpl CustomerDaoObj1 = new CustomerDaoImpl();
-//        CustomerProfileResponse response=CustomerDaoObj1.GetCustomer(customerProfileReq);
-//
-//        System.out.println(response);
-//        System.out.println("email: "+response.getEmail());
-//        System.out.println("phone number: "+response.getPhone());
-//        System.out.println("name: " +response.getName());
-//        System.out.println("address: "+ response.getAddress());
-
-
-       // System.out.println(CustomerDaoObj1.createCustomer("avaniiisssjddj","1234567890","davani@gmaill.com","wjdjjdjd"));
     }
-}
 
+}
 
