@@ -5,6 +5,7 @@ import com.cars24.dao.impl.CustomerDaoImpl;
 import com.cars24.data.req.AddCustomerReq;
 import com.cars24.data.req.CustomerProfileReq;
 import com.cars24.data.res.CustomerProfileResponse;
+import com.cars24.services.CustomerService;
 import com.cars24.services.impl.CustomerServiceImpl;
 import com.cars24.util.DbUtil;
 
@@ -27,11 +28,14 @@ public class Main {
         customerProfileReq.setEmail("davani@gmaill.com");
         customerProfileReq.setPhone("1234567890");
 
+        CustomerProfileResponse customerProfileResponse = customerService.getCustomerProfile(customerProfileReq);
+        System.out.println(customerProfileResponse);
 
-        CustomerDaoImpl CustomerDaoObj1 = new CustomerDaoImpl();
-        CustomerProfileResponse response=CustomerDaoObj1.GetCustomer(customerProfileReq);
 
-        System.out.println(response);
+//        CustomerDaoImpl CustomerDaoObj1 = new CustomerDaoImpl();
+//        CustomerProfileResponse response=CustomerDaoObj1.GetCustomer(customerProfileReq);
+//
+//        System.out.println(response);
 //        System.out.println("email: "+response.getEmail());
 //        System.out.println("phone number: "+response.getPhone());
 //        System.out.println("name: " +response.getName());

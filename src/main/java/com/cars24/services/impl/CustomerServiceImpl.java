@@ -25,7 +25,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerProfileResponse getCustomerProfile(CustomerProfileReq customerProfileReq) {
-        return null;
+       return customerDao.GetCustomer(customerProfileReq);
     }
 
    /* @Override
