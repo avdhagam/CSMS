@@ -20,8 +20,8 @@ public class CustomerDaoImpl implements CustomerDao {
         try{
 
             PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
-            preparedStatement.setString(1,"1234567890");
-            preparedStatement.setString(2,"davanisr@gmail.com");
+            preparedStatement.setString(1,customerProfileReq.getPhone());
+            preparedStatement.setString(2,customerProfileReq.getEmail());
             CustomerProfileResponse response = new CustomerProfileResponse();
 
             ResultSet resultSet = preparedStatement.executeQuery();
