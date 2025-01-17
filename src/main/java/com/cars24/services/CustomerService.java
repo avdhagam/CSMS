@@ -6,7 +6,7 @@ import com.cars24.data.res.CustomerProfileResponse;
 
 public interface CustomerService {
      String registerCustomer(AddCustomerReq addCustomerReq);
-     public CustomerProfileResponse getCustomerProfile(CustomerProfileReq customerProfileReq);
-
+     CustomerProfileResponse getCustomerProfile(CustomerProfileReq customerProfileReq);
+     void deleteCustomer(CustomerProfileReq customerProfileReq);
 
 }

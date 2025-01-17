@@ -12,8 +12,30 @@ import java.sql.*;
 public class CustomerDaoImpl implements CustomerDao {
     private final static String INSERT_SUCCESS_MESSAGE = "Customer added successfully!";
     private final static String INSERT_ERROR_MESSAGE = "Error while adding customer";
+    private final static String DELETE_SUCCESS_MESSAGE = "Customer deleted successfully";
+    private final static String DELETE_ERROR_MESSAGE = "Error while deleting customer";
+
+    @Override
+    public void DeleteCustomer(CustomerProfileReq customerProfileReq){
+        String deleteSQL = "DELETE FROM service_db.customers WHERE phone =? AND email = ?";
+        Connection connection = DbUtil.getDBconnection();
+       try {
+           PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL);
+           preparedStatement.setString(1, customerProfileReq.getPhone());
+           preparedStatement.setString(2, customerProfileReq.getEmail());
+           preparedStatement.executeUpdate();
+           System.out.println(DELETE_SUCCESS_MESSAGE);
+
+       } catch (SQLException e) {
+           System.out.println(DELETE_ERROR_MESSAGE);
+       }
 
 
+    }
+
+
+
+    @Override
     public CustomerProfileResponse GetCustomer(CustomerProfileReq customerProfileReq){
         String selectSQL = "SELECT name,email,phone,address FROM service_db.customers WHERE phone = ? OR email =?";
         Connection connection = DbUtil.getDBconnection();

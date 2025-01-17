@@ -10,7 +10,7 @@ public interface CustomerDao {
     public CustomerProfileResponse GetCustomer(CustomerProfileReq customerProfileReq);
 
     //public void UpdateCustomer();
-    //public void DeleteCustomer();
+    public void DeleteCustomer(CustomerProfileReq customerProfileReq);
 }
 
 

@@ -43,4 +43,19 @@ public class UI {
 
 
     }
+
+    public static void removeCustomer(){
+        System.out.println(" Enter the following details of the customer to be deleted");
+        CustomerProfileReq customerProfileReq = new CustomerProfileReq();
+
+        System.out.println("Enter Email  : ");
+        customerProfileReq.setEmail(scanner.next());
+        System.out.println("Enter Phone  : ");
+        customerProfileReq.setPhone(scanner.next());
+
+        CustomerServiceImpl customerService = new CustomerServiceImpl();
+        customerService.deleteCustomer(customerProfileReq);
+        
+
+    }
 }

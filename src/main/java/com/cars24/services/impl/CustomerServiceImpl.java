@@ -28,6 +28,11 @@ public class CustomerServiceImpl implements CustomerService {
        return customerDao.GetCustomer(customerProfileReq);
     }
 
+    @Override
+    public void deleteCustomer(CustomerProfileReq customerProfileReq){
+        customerDao.DeleteCustomer(customerProfileReq);
+    }
+
    /* @Override
     public String updateCustomer(AddCustomerReq addCustomerReq){
         customerDao.updateCustomer(addCustomerReq);
